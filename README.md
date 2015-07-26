@@ -29,4 +29,4 @@ MIT © [Ben Briggs](http://beneb.info)
 [atom]: https://atom.io
 [cssnano]: http://cssnano.co
 
-[ci]: https://travis-ci.org/ben-eb/cssnano
+[ci]: https://travis-ci.org/ben-eb/atom-cssnano
