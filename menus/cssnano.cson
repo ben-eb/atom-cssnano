@@ -1,0 +1,16 @@
+'context-menu':
+    'atom-workspace': [{
+        label: 'Optimize CSS',
+        command: 'cssnano:process'
+    }]
+
+'menu': [{
+    label: 'Packages'
+    submenu: [
+        label: 'Cssnano'
+        submenu: [{
+            label: 'Optimize CSS',
+            command: 'cssnano:process'
+        }]
+    ]
+}]
