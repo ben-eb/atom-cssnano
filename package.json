@@ -1,7 +1,7 @@
 {
   "name": "cssnano",
   "main": "./lib/cssnano",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Minify CSS with cssnano.",
   "repository": "https://github.com/ben-eb/atom-cssnano",
   "license": "MIT",
