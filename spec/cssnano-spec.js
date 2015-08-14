@@ -33,6 +33,15 @@ describe(pkg, function () {
         expect(atom.packages.isPackageActive(pkg)).toBe(true);
     });
 
+    it('should not crash on non-css languages', function () {
+        runTest(
+            workspaceElement,
+            editor,
+            'function () { return true; }',
+            'function () { return true; }'
+        );
+    });
+
     it('should minify css', function () {
         runTest(
             workspaceElement,
