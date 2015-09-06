@@ -9,7 +9,7 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "cssnano": "^2.1.1"
+    "cssnano": "^3.0.0"
   },
   "keywords": [
     "css",
