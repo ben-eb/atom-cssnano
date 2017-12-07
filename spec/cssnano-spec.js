@@ -3,6 +3,9 @@
 'use strict';
 
 var pkg = 'cssnano';
+var fs = require('fs');
+var path = require('path');
+var chokidar = require('chokidar');
 
 function runTest (element, editor, cssin, cssout) {
     editor.setText(cssin);
@@ -21,7 +24,7 @@ describe(pkg, function () {
         jasmine.attachToDOM(workspaceElement);
         return waitsForPromise(function () {
             return atom.packages.activatePackage(pkg).then(function () {
-                return atom.workspace.open('sample.js');
+                return atom.workspace.open('sample.css');
             }).then(function () {
                 editor = atom.workspace.getActiveTextEditor();
                 return editor;
@@ -156,5 +159,25 @@ describe(pkg, function () {
             'h1{z-index:500}',
             'h1{z-index:500}'
         );
+    });
+
+    it("should minify to file", function() {
+      atom.config.set("cssnano.minifyToFile", true);
+
+      var minSamplePath = path.dirname(editor.getPath()) + '\\sample.min.css';
+      var watcher = chokidar.watch(minSamplePath, {
+        persistent: true
+      });
+
+      editor.setText('h1 { color: #ff0000; }');
+      editor.save();
+      atom.commands.onDidDispatch(function (err) {
+          watcher.on('add', function(path, stats) {
+              var data = fs.readFileSync(minSamplePath, {encoding: 'utf-8'});
+              expect(data).toBe('h1{color:red}');
+              fs.unlinkSync(minSamplePath);
+          });
+      });
+      atom.commands.dispatch(workspaceElement, pkg + ':process');
     });
 });

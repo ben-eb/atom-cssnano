@@ -23,5 +23,8 @@
     "name": "Ben Briggs",
     "email": "beneb.info@gmail.com",
     "url": "http://beneb.info"
+  },
+  "devDependencies": {
+    "chokidar": "^1.7.0"
   }
 }
