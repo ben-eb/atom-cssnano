@@ -59,7 +59,7 @@ describe(pkg, function () {
             workspaceElement,
             editor,
             'h1 { -webkit-border-radius: 16px; border-radius: 16px }',
-            'h1{-webkit-border-radius:1pc;border-radius:1pc}'
+            'h1{-webkit-border-radius:16px;border-radius:16px}'
         );
     });
 
@@ -83,7 +83,7 @@ describe(pkg, function () {
             workspaceElement,
             editor,
             'h1 { font: "Helvetica Neue", Helvetica, sans-serif}',
-            'h1{font:"Helvetica Neue", Helvetica, sans-serif}'
+            'h1{font:"Helvetica Neue",Helvetica,sans-serif}'
         );
     });
 
@@ -95,7 +95,7 @@ describe(pkg, function () {
             workspaceElement,
             editor,
             'h1{content: counter(section);counter-increment: section}',
-            'h1{content:counter(section);counter-increment:section}'
+            'h1{content:counter(a);counter-increment:a}'
         );
     });
 
